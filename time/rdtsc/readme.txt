@@ -1,0 +1,1 @@
+calculate the CPU frequency
