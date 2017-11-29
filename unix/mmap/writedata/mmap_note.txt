@@ -1,0 +1,30 @@
+使用内核自动分配出来的地址（三次运行程序的结果）：
+lllllllllllllllllll   0x7f050cf97000
+lllllllllllllllllll   0x7f7d9e990000
+lllllllllllllllllll   0x7f65dfc42000
+
+====================================
+为mmap指定使用new分配出来的地址（三次运行程序的结果，
+可以发现new 出来的地址和mmap返回的地址是不同的）：
+lllllllllllllllllll   0x7f61b43f1010        // new 出来的地址
+SSSSSSSSSSSSSSSSSSS   0x7f61a7bf1000        // mmap返回的地址
+lllllllllllllllllll   0x7f6c28814010
+SSSSSSSSSSSSSSSSSSS   0x7f6c1c014000
+lllllllllllllllllll   0x7fbd82dc2010
+SSSSSSSSSSSSSSSSSSS   0x7fbd765c2000
+
+====================================
+man page是这么描述的：
+on Linux, the mapping will be created at a nearby page boundary.
+The  address  of the new mapping is returned as the result of
+the call.
+
+_SC_PAGE_SIZE 可以这么获得：
+sysconf(_SC_PAGE_SIZE);
+打印结果是：PAGE SIZE = 0x1000, 4096, 可以验证mmap返回的地址
+都是4k的整数倍，即man page的描述。
+
+
+
+
+
