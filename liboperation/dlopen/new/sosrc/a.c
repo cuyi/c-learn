@@ -1,17 +1,19 @@
-#include <iostream>
+#include <stdio.h>
 #include <unistd.h>
 
-extern "C"{
 #include "b.h"
-}
 
 void do_while()
 {
-	usleep(1000);
-	printInfo();
+	do
+	{
+		usleep(1000);
+		printInfo();
+	}while(1);
 }
 
 int start(void)
 {
 	do_while();
+	return 0;
 }

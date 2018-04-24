@@ -1,6 +1,6 @@
 #pragma once
 #include <stdio.h>
-#incldue "c.h"
+#include "c.h"
 
 void printInfo()
 {
