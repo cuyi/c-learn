@@ -24,10 +24,10 @@ void foo()
 */
 
 
-//¶¯Ì¬Á´½Ó¿âÂ·¾¶
+//ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½Ó¿ï¿½Â·ï¿½ï¿½
 #define LIB_CACULATE_PATH "./libcalculate.so"
 
-//º¯ÊýÖ¸Õë
+//ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
 typedef int (*CAC_FUNC)(int, int);
 
 int main()
@@ -36,7 +36,7 @@ int main()
     char *error;
     CAC_FUNC cac_func = NULL;
 
-    //´ò¿ª¶¯Ì¬Á´½Ó¿â
+    //ï¿½ò¿ª¶ï¿½Ì¬ï¿½ï¿½ï¿½Ó¿ï¿½
     handle = dlopen(LIB_CACULATE_PATH, RTLD_LAZY);
     if (!handle)
     {
@@ -44,10 +44,10 @@ int main()
         exit(EXIT_FAILURE);
     }
 
-    //Çå³ýÖ®Ç°´æÔÚµÄ´íÎó
+    //ï¿½ï¿½ï¿½Ö®Ç°ï¿½ï¿½ï¿½ÚµÄ´ï¿½ï¿½ï¿½
     dlerror();
 
-    //»ñÈ¡Ò»¸öº¯Êý
+    //ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     *(void **) (&cac_func) = dlsym(handle, "add");
     if ((error = dlerror()) != NULL)
     {
@@ -65,7 +65,7 @@ int main()
     cac_func = (CAC_FUNC)dlsym(handle, "div");
     printf("div: 8/2 = %d\n", cac_func(8,2));
 
-    //¹Ø±Õ¶¯Ì¬Á´½Ó¿â
+    //ï¿½Ø±Õ¶ï¿½Ì¬ï¿½ï¿½ï¿½Ó¿ï¿½
     dlclose(handle);
     exit(EXIT_SUCCESS);
 }

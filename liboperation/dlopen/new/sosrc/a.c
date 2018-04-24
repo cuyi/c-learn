@@ -7,7 +7,7 @@ void do_while()
 {
 	do
 	{
-		usleep(1000);
+		usleep(1000000);
 		printInfo();
 	}while(1);
 }

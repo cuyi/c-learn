@@ -2,5 +2,5 @@
 
 void foo()
 {
-	printf("foo() in c called\n");
+	printf("foo() in c source called\n");
 }
