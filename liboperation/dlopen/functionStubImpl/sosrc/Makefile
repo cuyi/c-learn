@@ -7,8 +7,8 @@ LIBPATH  = ./libs/
 
 all:$(TARGET)
 
-OBJS = a.o c.o
-SRCS = a.c c.c
+OBJS = a.o
+SRCS = a.c
 
 $(OBJS):$(SRCS)
 	$(CC) $(CFLAGS) -I $(INCLUDE) -c $^
